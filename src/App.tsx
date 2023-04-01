@@ -1,25 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import HomeBody from './homepage';
+import MovieList from './movies';
+import Podcast from './podcast';
+
+function Nav(props: any) {
+  return (
+    <div className="row">
+      <img className="col-1" src="./4746048.png" />
+      <div className="col-11">
+        <h1> Joel Hilton Movie Site</h1>
+        <p>
+          <span onClick={() => props.click('home')} style={{ margin: '5px' }}>
+            Home
+          </span>{' '}
+          <span
+            onClick={() => props.click('podcast')}
+            style={{ margin: '5px' }}
+          >
+            My Podcast
+          </span>{' '}
+          <span onClick={() => props.click('movies')} style={{ margin: '5px' }}>
+            Movie List
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+}
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav click={setCurrentPage} />
+      {currentPage == 'home' ? <HomeBody /> : null}
+      {currentPage == 'podcast' ? <Podcast /> : null}
+      {currentPage == 'movies' ? <MovieList /> : null}
+    </>
   );
 }
 
