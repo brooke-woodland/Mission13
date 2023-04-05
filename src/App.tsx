@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import HomeBody from './homepage';
-import MovieList from './movies';
 import Podcast from './podcast';
+import MovieList from './movie/movielist';
 
 function Nav(props: any) {
   return (
