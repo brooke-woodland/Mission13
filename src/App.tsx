@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import HomeBody from './homepage';
 import Podcast from './podcast';
-import MovieList from './movie/movielist';
+import MovieList from './movies';
 
 function Nav(props: any) {
   return (
