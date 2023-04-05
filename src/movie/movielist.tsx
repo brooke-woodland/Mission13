@@ -4,17 +4,16 @@ import { useEffect, useState } from 'react';
 function MovieList() {
   const [movieData, setMovieData] = useState<Movie[]>([]);
 
-  //   useEffect(() => {
+  useEffect(() => {
+    const fetchMovie = async () => {
+      const rsp = await fetch('https://localhost:4000/movie');
+      const temp = await rsp.json();
+      setMovieData(temp);
+    };
 
-  //   }, []);
+    fetchMovie();
+  }, []);
 
-  const fetchMovie = async () => {
-    const rsp = await fetch('https://localhost:4000/movie');
-    const temp = await rsp.json();
-    setMovieData(temp);
-  };
-
-  fetchMovie();
   return (
     <>
       <div className="row">
